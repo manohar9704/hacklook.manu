@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Parrot OS — HackLook</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="page page-enter page-parrot">
+
+  <canvas id="matrixCanvas" class="matrix"></canvas>
+  <canvas id="wordCanvas" class="matrix"></canvas>
+  <div class="bg-anim">
+    <div class="grid-overlay"></div>
+    <div class="particles-container"></div>
+    <div class="scan-lines"></div>
+    <div class="circuit-lines"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="logo" href="index.html">HackLook</a>
+
+      <nav>
+        <a href="index.html" class="navlink">Home</a>
+        <a href="os-kali.html" class="navlink">Kali</a>
+        <a href="os-parrot.html" class="navlink active">Parrot</a>
+        <a href="os-ubuntu.html" class="navlink">Ubuntu</a>
+      </nav>
+
+      <div class="header-controls">
+        <button id="bgToggle" class="toggle-btn">Disable Background</button>
+        <button id="soundToggle" class="toggle-btn">Sound: On</button>
+        <button id="terminalToggle" class="toggle-btn">Terminal: Off</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="detail-page">
+      <h1 class="glitch" data-text="Parrot OS">Parrot OS</h1>
+      <p class="muted">A privacy and security focused distribution. Great to experiment with in VMs.</p>
+
+      <div class="detail">
+        <h2>How to download Parrot (basic)</h2>
+        <ol>
+          <li>Visit the official Parrot OS site: <code>https://www.parrotsec.org/</code></li>
+          <li>Choose the edition (Home or Security) and download the ISO.</li>
+          <li>Verify the checksum if provided on the downloads page.</li>
+          <li>Use Etcher or Rufus to create a bootable USB, or use a VM to test first.</li>
+        </ol>
+
+        <p><a class="btn download" href="assets/cheatsheets/parrot-cheatsheet.pdf" download>Download Parrot cheat-sheet (PDF)</a></p>
+
+        <h3>Useful safe commands</h3>
+        <pre>
+sudo apt update
+sudo apt install &lt;package&gt;
+# use GUI package manager if unsure
+        </pre>
+
+        <p style="margin-top:12px;"><a class="btn ghost navlink" href="index.html">← Back to Home</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container muted">© <span id="year3"></span> HackLook</div>
+  </footer>
+
+  <div id="cursorTrail" class="cursor-trail"></div>
+
+  <!-- TERMINAL MODAL -->
+  <div id="terminalModal" class="terminal-modal" aria-hidden="true">
+    <div class="terminal-window" role="dialog" aria-label="Simulated Terminal">
+      <div class="terminal-header">
+        <div class="terminal-tabs">
+          <button data-os="kali" class="term-tab">Kali</button>
+          <button data-os="parrot" class="term-tab active">Parrot</button>
+          <button data-os="ubuntu" class="term-tab">Ubuntu</button>
+        </div>
+        <div class="terminal-actions">
+          <button id="termClear" title="Clear terminal">Clear</button>
+          <button id="termClose" title="Close terminal">Close</button>
+        </div>
+      </div>
+
+      <div class="terminal-body" id="terminalBody" tabindex="0" aria-live="polite">
+        <div class="term-output" id="termOutput"></div>
+        <div class="term-input-row">
+          <span class="term-prompt" id="termPrompt">root@parrot:~$</span>
+          <input id="termInput" class="term-input" autocomplete="off" autocapitalize="off" spellcheck="false" />
+        </div>
+      </div>
+
+      <div class="terminal-footer muted">Simulated terminal — commands are safe and local to this page.</div>
+    </div>
+  </div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
