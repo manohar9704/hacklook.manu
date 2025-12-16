@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HackLook OS — Home</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="page page-enter page-home">
+
+  <canvas id="matrixCanvas" class="matrix"></canvas>
+  <canvas id="wordCanvas" class="matrix"></canvas>
+  <div class="bg-anim">
+    <div class="grid-overlay"></div>
+    <div class="particles-container"></div>
+    <div class="scan-lines"></div>
+    <div class="circuit-lines"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="logo" href="index.html">HackLook</a>
+
+      <nav>
+        <a href="index.html" class="navlink active">Home</a>
+        <a href="os-kali.html" class="navlink">Kali</a>
+        <a href="os-parrot.html" class="navlink">Parrot</a>
+        <a href="os-ubuntu.html" class="navlink">Ubuntu</a>
+      </nav>
+
+      <div class="header-controls">
+        <button id="bgToggle" class="toggle-btn">Disable Background</button>
+        <button id="soundToggle" class="toggle-btn">Sound: On</button>
+        <button id="terminalToggle" class="toggle-btn">Terminal: Off</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1 class="glitch" data-text="HackLook OS Hub">HackLook OS Hub</h1>
+      <p class="muted">
+        Choose a popular hacking‑lab friendly OS, learn safe commands, and practice in a secure way.
+      </p>
+      <p class="muted">
+        This is a visual guide only — no real hacking, everything stays on your own machine.
+      </p>
+    </section>
+
+    <section class="os-grid">
+      <article class="os-card">
+        <h2>Kali Linux</h2>
+        <p>Debian‑based distro focused on security testing. Great for labs and CTF practice (in VMs).</p>
+        <a class="btn" href="os-kali.html">Open Kali Guide →</a>
+      </article>
+
+      <article class="os-card">
+        <h2>Parrot OS</h2>
+        <p>Lightweight security and privacy‑oriented distribution with a nice desktop experience.</p>
+        <a class="btn" href="os-parrot.html">Open Parrot Guide →</a>
+      </article>
+
+      <article class="os-card">
+        <h2>Ubuntu (for learning)</h2>
+        <p>Beginner‑friendly base system. Perfect to learn Linux commands before jumping into pentest distros.</p>
+        <a class="btn" href="os-ubuntu.html">Open Ubuntu Guide →</a>
+      </article>
+    </section>
+
+    <section class="info-panel">
+      <h2>Safe learning tips</h2>
+      <ul>
+        <li>Use virtual machines (VMware / VirtualBox) or live USBs instead of your main OS.</li>
+        <li>Practice only in labs, CTFs, or systems you own and control.</li>
+        <li>Keep your systems updated and never run random scripts you don’t understand.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container muted">© <span id="year1"></span> HackLook</div>
+  </footer>
+
+  <div id="cursorTrail" class="cursor-trail"></div>
+
+  <!-- TERMINAL MODAL -->
+  <div id="terminalModal" class="terminal-modal" aria-hidden="true">
+    <div class="terminal-window" role="dialog" aria-label="Simulated Terminal">
+      <div class="terminal-header">
+        <div class="terminal-tabs">
+          <button data-os="kali" class="term-tab active">Kali</button>
+          <button data-os="parrot" class="term-tab">Parrot</button>
+          <button data-os="ubuntu" class="term-tab">Ubuntu</button>
+        </div>
+        <div class="terminal-actions">
+          <button id="termClear" title="Clear terminal">Clear</button>
+          <button id="termClose" title="Close terminal">Close</button>
+        </div>
+      </div>
+
+      <div class="terminal-body" id="terminalBody" tabindex="0" aria-live="polite">
+        <div class="term-output" id="termOutput"></div>
+        <div class="term-input-row">
+          <span class="term-prompt" id="termPrompt">root@kali:~$</span>
+          <input id="termInput" class="term-input" autocomplete="off" autocapitalize="off" spellcheck="false" />
+        </div>
+      </div>
+
+      <div class="terminal-footer muted">Simulated terminal — commands are safe and local to this page.</div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
